@@ -11,19 +11,16 @@ class MeuApp extends StatelessWidget {
         appBar: AppBar(
           title: const Text('Meu Primeiro App'),
         ),
-        body: Column(children: [
-          Exemplo(
-            title: 'Texto 01',
-            onPress: () {
-              print('Cliclou no botão 01');
-            },
-          ),
-          Exemplo(
-            onPress: () {
-              print('Cliclou no botão 02');
-            },
-          ),
-        ]),
+        body: Column(
+          children: [
+            const Image(
+              width: 100,
+              image: AssetImage('assets/logo.png'),
+            ),
+            Image.network(
+                'https://www.freepnglogos.com/uploads/logo-ifood-png/ifood-faca-seu-pedido-online-logo-png-12.png'),
+          ],
+        ),
       ),
     );
   }
