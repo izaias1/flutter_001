@@ -16,7 +16,7 @@ class MeuApp extends StatelessWidget {
         appBar: AppBar(
           title: const Text('Meu Primeiro App'),
         ),
-        body: Container(
+        body: ListView(
           // aqui aonde decide se vai ser horizontal ou vertical
           scrollDirection: Axis.horizontal,
           children: [
