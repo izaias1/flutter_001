@@ -16,13 +16,26 @@ class MeuApp extends StatelessWidget {
         appBar: AppBar(
           title: const Text('Meu Primeiro App'),
         ),
-        body: ListView(
-          children: const [
-            ListTile(
-              leading: Icon(Icons.copyright),
-              title: Text('Nome'),
-              trailing: Icon(Icons.access_alarm_sharp),
-            )
+        body: Container(
+          // aqui aonde decide se vai ser horizontal ou vertical
+          scrollDirection: Axis.horizontal,
+          children: [
+            Container(
+              width: 150,
+              color: Colors.amber,
+            ),
+            Container(
+              width: 150,
+              color: Colors.blueGrey,
+            ),
+            Container(
+              width: 150,
+              color: Colors.deepPurple,
+            ),
+            Container(
+              width: 150,
+              color: Colors.pink,
+            ),
           ],
         ),
       ),
