@@ -6,6 +6,17 @@ import 'package:flutter_001/exemplo.dart';
 void main() => runApp(MeuApp());
 
 class MeuApp extends StatelessWidget {
+  var contatos = [
+    'Isarel',
+    'Joana',
+    'Janailza',
+    'Janaina',
+    'Israel Junior',
+    'Jozileide',
+    'Izaias',
+    'Ytalo'
+  ];
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -16,27 +27,18 @@ class MeuApp extends StatelessWidget {
         appBar: AppBar(
           title: const Text('Meu Primeiro App'),
         ),
-        body: ListView(
-          // aqui aonde decide se vai ser horizontal ou vertical
-          scrollDirection: Axis.horizontal,
-          children: [
-            Container(
-              width: 150,
-              color: Colors.amber,
-            ),
-            Container(
-              width: 150,
-              color: Colors.blueGrey,
-            ),
-            Container(
-              width: 150,
-              color: Colors.deepPurple,
-            ),
-            Container(
-              width: 150,
-              color: Colors.pink,
-            ),
-          ],
+        body: ListView.builder(
+          itemCount: contatos.length,
+          itemBuilder: (ctx, index) {
+            return ListTile(
+              leading: Icon(Icons.person),
+              title: Text('${contatos[index]}'),
+              trailing: TextButton(
+                onPressed: () {},
+                child: Text('Editar'),
+              ),
+            );
+          },
         ),
       ),
     );
