@@ -40,6 +40,18 @@ class MeuApp extends StatelessWidget {
             );
           },
         ),
+        drawer: Drawer(
+          child: ListView(
+            children: [
+              DrawerHeader(
+                child: Text('Cabecalho'),
+              ),
+              Text('Menu 01'),
+              Text('Menu 01'),
+              Text('Menu 01'),
+            ],
+          ),
+        ),
       ),
     );
   }
