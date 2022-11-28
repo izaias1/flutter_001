@@ -1,20 +1,51 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_001/src/ajuda.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  _HomePage createState() => _HomePage();
+}
+
+class _HomePage extends State<HomePage> {
+  int contagem = 0;
+  var fundo = Colors.red;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home'),
+        title: const Text('Home Page'),
       ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: (() {
-            Navigator.pushNamed(context, '/ajuda',
-                arguments: Parametros('Ajuda 2', 'Mensagem 2'));
-          }),
-          child: const Text('Ir para Pagina Ajuda'),
+      body: Container(
+        color: fundo,
+        child: Column(
+          children: [
+            const Text('Contagem:'),
+            Text(contagem.toString()),
+            ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  contagem = contagem + 1;
+                });
+              },
+              child: const Text('Aumentar'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  contagem = contagem - 1;
+                });
+              },
+              child: const Text('Diminuir'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  fundo = Colors.blue;
+                });
+              },
+              child: const Text('Azul'),
+            ),
+          ],
         ),
       ),
     );
