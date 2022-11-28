@@ -1,25 +1,22 @@
 import 'package:flutter/material.dart';
-
-class Parametros {
-  final String title;
-  final String message;
-
-  Parametros(this.title, this.message);
-}
+import 'package:provider/provider.dart';
+import 'package:flutter_001/src/models/contador.dart';
 
 class AjudaPage extends StatelessWidget {
   const AjudaPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final Parametros args =
-        ModalRoute.of(context)!.settings.arguments as Parametros;
-
     return Scaffold(
       appBar: AppBar(
-        title: Text(args.title),
+        title: const Text('Ajuda Titulo'),
       ),
-      body: Center(child: Text(args.message)),
+      body: Center(
+        child: Consumer<Contador>(
+          builder: (context, contador, child) =>
+              Text('Contagem: ${contador.valor}'),
+        ),
+      ),
     );
   }
 }
