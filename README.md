@@ -1,6 +1,6 @@
 # flutter_001
 
-A new Flutter project.
+Aulas feitas no curso da b7web
 
 ## Getting Started
 
