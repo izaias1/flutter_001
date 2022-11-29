@@ -10,16 +10,19 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
 
+  String email = '';
+  String senha = '';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Login'),
+        title: const Text('Login'),
       ),
       body: ListView(
         children: [
           Container(
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             child: Form(
               key: _formKey,
               child: Column(
@@ -33,6 +36,11 @@ class _LoginPageState extends State<LoginPage> {
                         return 'Você precisa digitar um e-mail';
                       }
                       return null;
+                    },
+                    onSaved: (txt) {
+                      setState(() {
+                        email = txt!;
+                      });
                     },
                   ),
                   TextFormField(
@@ -49,13 +57,22 @@ class _LoginPageState extends State<LoginPage> {
                       }
                       return null;
                     },
+                    onSaved: (txt) {
+                      setState(() {
+                        senha = txt!;
+                      });
+                    },
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      if (_formKey.currentState!.validate()) {}
+                      if (_formKey.currentState!.validate()) {
+                        _formKey.currentState!.save();
+                      }
                     },
                     child: const Text('Entrar'),
                   ),
+                  Text('E-mail: $email'),
+                  Text('Senha: $senha'),
                 ],
               ),
             ),
