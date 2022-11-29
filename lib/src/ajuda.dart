@@ -14,7 +14,8 @@ class AjudaPage extends StatelessWidget {
       body: Center(
         child: Consumer<Contador>(
           builder: (context, contador, child) =>
-              Text('Contagem: ${contador.valor}'),
+              // Text('Contagem: ${contador.valor}'),
+              Text('Nome: ${contador.nome}'),
         ),
       ),
     );

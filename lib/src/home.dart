@@ -12,6 +12,18 @@ class HomePage extends StatelessWidget {
       body: Container(
           child: Column(
         children: [
+          TextField(
+            decoration: const InputDecoration(
+              labelText: 'Digite seu nome',
+            ),
+            onChanged: (text) {
+              Provider.of<Contador>(context, listen: false).mudarNome(text);
+            },
+          ),
+          Consumer<Contador>(
+            builder: (context, contador, child) =>
+                Text("Meu nome é: ${contador.nome}"),
+          ),
           const Text('Contagem:'),
           Consumer<Contador>(
             builder: (context, contador, child) =>
