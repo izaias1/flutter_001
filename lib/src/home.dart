@@ -12,43 +12,27 @@ class HomePage extends StatelessWidget {
       ),
       body: ListView(
         children: [
-          Column(
-            children: [
-              const Formulatio(),
-              Container(
-                height: 100,
-              ),
-              TextField(
-                decoration: const InputDecoration(
-                  labelText: 'Digite seu nome',
+          Center(
+            child: Column(
+              children: [
+                const SizedBox(
+                  height: 200,
+                  child: Center(
+                    child: Text(
+                      'Bem vindo ao app',
+                      style: TextStyle(fontSize: 30),
+                    ),
+                  ),
                 ),
-                onChanged: (text) {
-                  Provider.of<Contador>(context, listen: false).mudarNome(text);
-                },
-              ),
-              Consumer<Contador>(
-                builder: (context, contador, child) =>
-                    Text("Meu nome é: ${contador.nome}"),
-              ),
-              const Text('Contagem:'),
-              Consumer<Contador>(
-                builder: (context, contador, child) =>
-                    Text(contador.valor.toString()),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  Provider.of<Contador>(context, listen: false).aumentar();
-                },
-                child: const Text('Aumentar'),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/ajuda');
-                },
-                child: const Text('Ir para ajuda'),
-              ),
-            ],
-          ),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/login');
+                  },
+                  child: const Text('Fazer Login'),
+                ),
+              ],
+            ),
+          )
         ],
       ),
     );

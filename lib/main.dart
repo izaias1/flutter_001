@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:flutter_001/src/models/contador.dart';
 import 'package:flutter_001/src/ajuda.dart';
 import 'package:flutter_001/src/home.dart';
+import 'package:flutter_001/src/login.dart';
 
 void main() => runApp(
       MultiProvider(
@@ -23,6 +24,7 @@ class MeuApp extends StatelessWidget {
       routes: {
         '/home': (context) => HomePage(),
         '/ajuda': (context) => AjudaPage(),
+        '/login': (context) => const LoginPage(),
       },
       initialRoute: '/home',
     );
